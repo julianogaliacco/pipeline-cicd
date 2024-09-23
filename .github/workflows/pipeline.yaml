@@ -19,3 +19,13 @@ jobs:
 
       - name: Run Bash script
         run: bash bash.sh
+
+      - name: Ready Json
+        run: |
+          echo 'PACKAGE_JSON<<EOF' >> $GITHUB_ENV
+          cat ./package.json >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
+          
+      - name: Write Json
+        run: |
+          echo '${{ fromJson(env.PACKAGE_JSON).version }}'
