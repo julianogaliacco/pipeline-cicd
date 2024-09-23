@@ -1,0 +1,15 @@
+name: Test linux job
+on:
+  push
+
+jobs:
+  testJob:
+    name: Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run Bash script
+        run: bash bash.sh
