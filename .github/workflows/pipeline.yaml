@@ -29,3 +29,7 @@ jobs:
       - name: Write Json
         run: |
           echo '${{ fromJson(env.PACKAGE_JSON).version }}'
+
+      - name: Write Json Second
+        run: |
+          echo '${{ fromJson(env.PACKAGE_JSON).scripts.start }}'
